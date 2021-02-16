@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportApp.Domain", "SportApp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportApp.Infrastructure", "SportApp.Infrastructure\SportApp.Infrastructure.csproj", "{32F4F965-63DB-48FE-959A-39FD7046DC5B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportApp.Domain.Tests", "Tests\SportApp.Domain.Tests\SportApp.Domain.Tests.csproj", "{539165A3-FC90-46C8-A695-EA2DB6602A56}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{D290E18C-60D0-47A9-A89B-C89D323B8420}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,9 +37,16 @@ Global
 		{32F4F965-63DB-48FE-959A-39FD7046DC5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{32F4F965-63DB-48FE-959A-39FD7046DC5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{32F4F965-63DB-48FE-959A-39FD7046DC5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{539165A3-FC90-46C8-A695-EA2DB6602A56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{539165A3-FC90-46C8-A695-EA2DB6602A56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{539165A3-FC90-46C8-A695-EA2DB6602A56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{539165A3-FC90-46C8-A695-EA2DB6602A56}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{539165A3-FC90-46C8-A695-EA2DB6602A56} = {D290E18C-60D0-47A9-A89B-C89D323B8420}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {15D34CF2-857D-45A9-AE03-627D2F0208C6}

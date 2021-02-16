@@ -18,12 +18,12 @@ namespace SportApp.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post()
+        public async Task<IActionResult> Post(AddWeightCommand command)
         {
-            var result = await sender.Send(new AddWeightCommand());
+            var result = await sender.Send(command);
 
             return result.Match<IActionResult>(
-                success: data => Ok(data),
+                success: () => Ok(),
                 error: exception => BadRequest(exception.Message));
         }
     }

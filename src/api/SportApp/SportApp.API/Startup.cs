@@ -1,10 +1,14 @@
 using Autofac;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using SportApp.Infrastructure;
+using SportApp.Infrastructure.SeedData;
+using System;
 
 namespace SportApp.API
 {
@@ -26,7 +30,7 @@ namespace SportApp.API
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "SportApp.API", Version = "v1" });
             });
             services.AddHealthChecks();
-
+        
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -36,6 +40,14 @@ namespace SportApp.API
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "SportApp.API v1"));
+
+                using (var scope = app.ApplicationServices.CreateScope())
+                using (var context = scope.ServiceProvider.GetService<SportAppDbContext>()) {
+                    context.Database.EnsureDeleted();
+                    context.Database.EnsureCreated();
+                    context.Database.Migrate();
+                    new ExerciseSeedData().Seed(context);
+                }
             }
 
             app.UseRouting();
