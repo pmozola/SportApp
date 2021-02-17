@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ExerciseDataService } from './services/exercise.data.service';
 
 @Component({
   selector: 'app-exercise',
@@ -7,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExercisePage implements OnInit {
 
-  constructor() { }
+  constructor(private dataService: ExerciseDataService) { }
 
   ngOnInit() {
+    this.dataService.getExerciseList().subscribe(x => console.log(x));
   }
-
 }
