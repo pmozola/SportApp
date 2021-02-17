@@ -7,13 +7,14 @@ import { IonicModule } from '@ionic/angular';
 import { ExercisePageRoutingModule } from './exercise-routing.module';
 
 import { ExercisePage } from './exercise.page';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ExercisePageRoutingModule
+    ExercisePageRoutingModule,
   ],
   declarations: [ExercisePage]
 })

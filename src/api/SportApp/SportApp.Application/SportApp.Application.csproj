@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SportApp.Domain\SportApp.Domain.csproj" />
+    <ProjectReference Include="..\SportApp.Infrastructure\SportApp.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

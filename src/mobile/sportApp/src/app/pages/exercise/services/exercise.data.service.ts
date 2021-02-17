@@ -5,7 +5,9 @@ import { ExerciseInfo } from "../class/exercise-info";
 import { environment } from "src/environments/environment";
 import { ExerciseDetail } from "../class/exercise-detail";
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class ExerciseDataService {
 
   constructor(private http: HttpClient) {

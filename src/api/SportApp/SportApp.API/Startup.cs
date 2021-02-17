@@ -23,6 +23,12 @@ namespace SportApp.API
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(o => o.AddPolicy("CORSPolicy", builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            }));
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -30,11 +36,13 @@ namespace SportApp.API
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "SportApp.API", Version = "v1" });
             });
             services.AddHealthChecks();
+           
         
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseCors("CORSPolicy");
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
