@@ -18,7 +18,7 @@ export class ExerciseDataService {
     return this.http.get<ExerciseInfo[]>(url);
   }
 
-  getExerciseDetail(id: number): Observable<ExerciseDetail> {
+  get(id: number): Observable<ExerciseDetail> {
     const url = `${environment.apiUrl}/exercise/${id}`
     return this.http.get<ExerciseDetail>(url);
   }
