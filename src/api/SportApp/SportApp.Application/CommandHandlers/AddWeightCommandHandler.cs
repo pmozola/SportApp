@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 
 using MediatR;
@@ -25,7 +26,8 @@ namespace SportApp.Application.CommandHandlers
         {
             var entity = new Weight(
                 userId: userContext.GetUserId(),
-                value: request.Value);
+                value: request.Value,
+                date: request.date);
 
             await repository.Add(entity);
             await unitOfWork.SaveChangesAsync(cancellationToken);
@@ -34,5 +36,5 @@ namespace SportApp.Application.CommandHandlers
         }
     }
 
-    public record AddWeightCommand(double Value) : IRequest<Result>;
+    public record AddWeightCommand(double Value, DateTime date) : IRequest<Result>;
 }

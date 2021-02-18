@@ -26,5 +26,15 @@ namespace SportApp.API.Controllers
                 success: data => Ok(data),
                 error: exception => BadRequest(exception.Message));
         }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> Get(int id)
+        {
+            var result = await sender.Send(new GetExerciseQuery(id));
+
+            return result.Match<IActionResult>(
+                success: data => Ok(data),
+                error: exception => BadRequest(exception.Message));
+        }
     }
 }

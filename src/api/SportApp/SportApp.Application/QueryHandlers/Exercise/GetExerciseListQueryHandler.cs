@@ -21,7 +21,7 @@ namespace SportApp.Application.QueryHandlers.Exercise
         {
             var result = await _dbContext
                 .Excercises
-                .Select(x => new ExerciseInfo(x.Id, x.Name, string.Empty))
+                .Select(x => new ExerciseInfo(x.Id, x.Name, x.TumbnailUrl))
                 .ToArrayAsync();
 
             return Result<ExerciseInfo[]>.Success(result);

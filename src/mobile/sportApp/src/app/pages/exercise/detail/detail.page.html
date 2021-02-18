@@ -3,8 +3,31 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>detail</ion-title>
+    <ion-title>Exercise detail</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content> </ion-content>
+<ion-content *ngIf="detail">
+  <div class="videoWrapper">
+    <iframe [src]="videoUrl" frameborder="0" allowfullscreen></iframe>
+  </div>
+  <h2>{{detail.name}}</h2>
+  <div class="ion-padding speaker-detail">
+    <p>{{detail.description}}</p>
+
+    <ion-chip color="twitter" button>
+      <ion-icon name="logo-twitter"></ion-icon>
+      <ion-label>Twitter</ion-label>
+    </ion-chip>
+
+    <ion-chip color="dark" button>
+      <ion-icon name="logo-github"></ion-icon>
+      <ion-label>GitHub</ion-label>
+    </ion-chip>
+
+    <ion-chip color="instagram" button>
+      <ion-icon name="logo-instagram"></ion-icon>
+      <ion-label>Instagram</ion-label>
+    </ion-chip>
+  </div>
+</ion-content>

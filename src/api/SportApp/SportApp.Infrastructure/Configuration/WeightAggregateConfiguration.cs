@@ -12,6 +12,7 @@ namespace SportApp.Infrastructure
             builder.Ignore(x => x.DomainEvents);
             builder.Property(x => x.UserId).IsRequired();
             builder.Property(x => x.Value).IsRequired();
+            builder.Property(x => x.Date).IsRequired();
         }
     }
 }

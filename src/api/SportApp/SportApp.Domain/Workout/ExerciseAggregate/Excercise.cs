@@ -6,17 +6,19 @@ namespace SportApp.Domain
     {
         public Excercise() { }
 
-        public Excercise(string name, string description, VideoUrl url, ExerciseType exerciseType)
+        public Excercise(string name, string description, VideoUrl videoUrl, string tumbnailUrl, ExerciseType exerciseType)
         {
             Name = name;
             Description = description;
-            Url = url;
+            VideoUrl = videoUrl;
+            TumbnailUrl = tumbnailUrl;
             ExerciseType = exerciseType;
         }
 
         public string Name { get; private set; }
         public string Description { get; private set; }
-        public VideoUrl Url { get; private set; }
+        public VideoUrl VideoUrl { get; private set; }
+        public string TumbnailUrl { get; private set; }
         public ExerciseType ExerciseType { get; private set; }
     }
 }

@@ -12,11 +12,12 @@ namespace SportApp.Infrastructure
             builder.Ignore(x => x.DomainEvents);
             builder.Property(x => x.Description).IsRequired();
             builder.Property(x => x.Name).IsRequired();
-            builder.OwnsOne(x => x.Url, buildAction: n =>
+            builder.OwnsOne(x => x.VideoUrl, buildAction: n =>
             {
                 n.Property(y => y.Url).HasColumnName("video_url");
                 n.Property(y => y.VideoService).HasColumnName("video_service");
             });
+            builder.Property(x => x.TumbnailUrl);
             builder.Property(x => x.ExerciseType)
                 .HasConversion<int>()
                 .IsRequired();

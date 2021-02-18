@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using SportApp.Domain.BaseObjects;
+using System;
 
 namespace SportApp.Domain
 {
@@ -9,16 +10,18 @@ namespace SportApp.Domain
         {
         }
 
-        public Weight(int userId, double value)
+        public Weight(int userId, double value, DateTime date)
         {
             UserId = userId;
             Value = value;
-            this.AddDomainEvent(new UserWeightAddedDomainEvent(userId, value));
+            Date = date;
+            this.AddDomainEvent(new UserWeightAddedDomainEvent(userId, value, Date));
         }
 
         public int UserId { get; private set; }
         public double Value { get; private set; }
+        public DateTime Date { get; private set; }
     }
 
-    public record UserWeightAddedDomainEvent(int UserId, double Value) : INotification { }
+    public record UserWeightAddedDomainEvent(int UserId, double Value, DateTime date) : INotification { }
 }

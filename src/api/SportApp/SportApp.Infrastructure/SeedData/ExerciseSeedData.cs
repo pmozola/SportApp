@@ -19,7 +19,8 @@ namespace SportApp.Infrastructure.SeedData
             yield return new Excercise(
                 "Thruster",
                 "Thruster description",
-                new VideoUrl("https://www.youtube.com/watch?v=mieC65cBFEk", VideoService.YouTube),
+                new VideoUrl("https://www.youtube.com/embed/mieC65cBFEk", VideoService.YouTube),
+                "http://2.bp.blogspot.com/-QSMkvHbTD88/VkG0t_7bgwI/AAAAAAAAErs/Yj8d7k1Do3M/s1600/2013-Thrusters-Combined.jpg",
                 ExerciseType.Weightlifting);
         }
     }

@@ -1,6 +1,6 @@
 export class ExerciseDetail {
   id: Number;
-  url: string;
+  videoUrl: string;
   name: string;
   description: string;
 }
