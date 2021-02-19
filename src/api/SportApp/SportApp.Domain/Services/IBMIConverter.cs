@@ -1,6 +1,7 @@
 ﻿namespace SportApp.Domain.Services
 {
-    public class IBMIConverter
+    public interface IBMIConverter
     {
+        double Convert(double weight, int heightInCm);
     }
 }

@@ -15,9 +15,8 @@ export class HomePage implements OnInit {
   }
 
  public  async openAddWeightModal() {
-    debugger;
     const modal = await this.modalController.create({
-      component: AddWeightModalComponent,
+      component: AddWeightModalComponent
     });
     return await modal.present();
   }

@@ -1,12 +1,32 @@
-<ion-header translucent>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-button (click)="save()">Zapisz</ion-button>
-    </ion-buttons>
-    <ion-title>Dodaj Wage</ion-title>
-    <ion-buttons slot="end">
-      <ion-button (click)="dismissModal()">Anuluj</ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
-<ion-content> Dodaj Wage </ion-content>
+
+  <ion-header translucent>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button (click)="submit()">Zapisz</ion-button>
+      </ion-buttons>
+      <ion-title>Dodaj Wage</ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="cancel()">Anuluj</ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+
+    <ion-item lines="full">
+      <ion-label>Waga</ion-label>
+      <ion-input formControlName="value" type="number" step="0.01"></ion-input>
+    </ion-item>
+
+
+    <ion-item lines="full">
+      <ion-label>Data</ion-label>
+      <ion-datetime
+        formControlName="date"
+        placeholder="Wybierz Date"
+      ></ion-datetime>
+    </ion-item>
+
+  </form>
+  </ion-content>
+
