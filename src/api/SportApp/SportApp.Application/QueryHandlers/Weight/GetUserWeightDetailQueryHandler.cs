@@ -46,7 +46,7 @@ namespace SportApp.Application.QueryHandlers.Weight
         }
     }
 
-    public record GetUserWeightQuery(int id) : IRequest<Result<UserWeightDetail>>;
+    public record GetUserWeightQuery() : IRequest<Result<UserWeightDetail>>;
 
     public record UserWeightDetail(double CurrentWeight, double LastWeight, double BMI);
 }

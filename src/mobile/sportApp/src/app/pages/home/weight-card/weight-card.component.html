@@ -1,0 +1,21 @@
+<!-- <IonCard *ngIf="userWeight">
+  <IonCardHeader>
+    <IonCardSubtitle>Ostatnia Waga</IonCardSubtitle>
+    <IonCardTitle>Waga</IonCardTitle>
+  </IonCardHeader>
+  obecna {{userWeight.currentWeight}} ostatnia {{userWeight.lastWeight}} bmi {{userWeight.bmi}}
+  <IonCardContent>
+
+  </IonCardContent>
+</IonCard> -->
+
+<ion-card *ngIf="userWeight">
+  <ion-card-header>
+    <ion-card-subtitle>Ostatnia waga</ion-card-subtitle>
+    <ion-card-title>waga</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    obecna {{userWeight.currentWeight}} ostatnia {{userWeight.lastWeight}} bmi {{userWeight.bmi}}
+  </ion-card-content>
+</ion-card>

@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using SportApp.Infrastructure;
 using System;
 using SportApp.Domain;
+using SportApp.Domain.Services;
 
 namespace SportApp.API.IoC
 {
@@ -71,6 +72,7 @@ namespace SportApp.API.IoC
             builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerLifetimeScope();
 
             builder.RegisterType<DomainEventDispacher>().As<IDomainEventDispacher>().InstancePerLifetimeScope();
+            builder.RegisterType<BMIConverter>().As<IBMIConverter>().InstancePerLifetimeScope();
         }
     }
 }

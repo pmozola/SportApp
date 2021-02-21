@@ -3,6 +3,7 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using SportApp.Application.CommandHandlers;
+using SportApp.Application.QueryHandlers.Weight;
 
 namespace SportApp.API.Controllers
 {
@@ -24,6 +25,16 @@ namespace SportApp.API.Controllers
 
             return result.Match<IActionResult>(
                 success: () => Ok(),
+                error: exception => BadRequest(exception.Message));
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Get()
+        {
+            var result = await sender.Send(new GetUserWeightQuery());
+
+            return result.Match<IActionResult>(
+                success: data => Ok(data),
                 error: exception => BadRequest(exception.Message));
         }
     }

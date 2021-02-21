@@ -8,15 +8,16 @@ import { HomePageRoutingModule } from './home-routing.module';
 
 import { HomePage } from './home.page';
 import { AddWeightModalComponent } from './add-weight-modal/add-weight-modal.component';
+import { WeightCardComponent } from './weight-card/weight-card.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    IonicModule,
+    IonicModule.forRoot(),
     HomePageRoutingModule,
     ReactiveFormsModule,
   ],
-  declarations: [HomePage, AddWeightModalComponent]
+  declarations: [HomePage, AddWeightModalComponent, WeightCardComponent]
 })
 export class HomePageModule { }
