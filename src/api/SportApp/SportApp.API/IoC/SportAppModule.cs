@@ -3,15 +3,13 @@ using System.Reflection;
 
 using MediatR;
 using SportApp.Application.Bahaviors;
-using SportApp.Application.CommandHandlers;
 using SportApp.Infrastructure.Repositories;
 using SportApp.API.Infrastructure;
 using SportApp.Application;
 using Microsoft.EntityFrameworkCore;
 using SportApp.Infrastructure;
 using System;
-using SportApp.Domain;
-using SportApp.Domain.Services;
+using SportApp.Application.CommandHandlers;
 
 namespace SportApp.API.IoC
 {
@@ -32,7 +30,7 @@ namespace SportApp.API.IoC
             foreach (var mediatrOpenType in mediatrOpenTypes)
             {
                 builder
-                    .RegisterAssemblyTypes(typeof(AddWeightCommand).GetTypeInfo().Assembly)
+                    .RegisterAssemblyTypes(typeof(AddWeightCommandHandler).GetTypeInfo().Assembly)
                     .AsClosedTypesOf(mediatrOpenType)
                     .AsImplementedInterfaces();
             }
@@ -58,7 +56,7 @@ namespace SportApp.API.IoC
                {
                    var dbContextOptionsBuilder = new DbContextOptionsBuilder<SportAppDbContext>();
 
-                   dbContextOptionsBuilder.UseSqlServer("Data Source=(LocalDB)\\MSSQLLocalDB;Initial Catalog=SportApp;Integrated Security=True");
+                   dbContextOptionsBuilder.UseSqlServer("Data Source=localhost\\SQL2017;Initial Catalog=SportApp;Integrated Security=True");
                    dbContextOptionsBuilder.LogTo(Console.WriteLine)
                        .EnableSensitiveDataLogging();
 
@@ -72,7 +70,6 @@ namespace SportApp.API.IoC
             builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerLifetimeScope();
 
             builder.RegisterType<DomainEventDispacher>().As<IDomainEventDispacher>().InstancePerLifetimeScope();
-            builder.RegisterType<BMIConverter>().As<IBMIConverter>().InstancePerLifetimeScope();
         }
     }
 }

@@ -11,6 +11,7 @@ import { WeightDataService } from '../services/weight.data.service';
 export class AddWeightModalComponent implements OnInit {
   form: FormGroup;
   defaultDate: string;
+  submitted: boolean = false;
 
   constructor(private modalController: ModalController, private dataService: WeightDataService, private formBuilder: FormBuilder) { }
 
@@ -22,15 +23,26 @@ export class AddWeightModalComponent implements OnInit {
     })
   }
 
+  get errorControl() {
+    return this.form.controls;
+  }
+
+  showWeightRequiredErrorMessege(): boolean {
+    return (this.submitted || this.errorControl.value.touched) && this.errorControl.value.errors?.required
+  }
+
   submit() {
+    this.submitted = true;
     if (!this.form.valid) {
       return;
     }
 
     this.dataService
       .add(this.form.value)
-      .subscribe();
+      .subscribe(_ => this.cancel());
   }
 
-  cancel() { }
+  cancel() {
+    this.modalController.dismiss();
+  }
 }
